@@ -18,42 +18,42 @@ import com.example.alphaecosystemtest.common.domain.model.CardInfo
 
 @Composable
 fun CardInfoItem(cardInfo: CardInfo) {
-    Column(modifier = Modifier.padding(8.dp)) {
+    Column(modifier = Modifier.padding(12.dp)) {
         Text(
-            text = stringResource(id = R.string.search_card_number) + "" + cardInfo.searchCardNumber
+            text = stringResource(id = R.string.search_card_number) + " " + cardInfo.searchCardNumber
         )
         Text(
-            text = stringResource(id = R.string.card_number_length) + "" + cardInfo.cardNumberLength
+            text = stringResource(id = R.string.card_number_length) + " " + cardInfo.cardNumberLength
         )
         Text(
-            text = stringResource(id = R.string.card_number_luhn) + "" + cardInfo.cardNumberLuhn
+            text = stringResource(id = R.string.card_number_luhn) + " " + cardInfo.cardNumberLuhn
         )
         Text(
-            text = stringResource(id = R.string.scheme) + "" + cardInfo.scheme
+            text = stringResource(id = R.string.scheme) + " " + cardInfo.scheme
         )
         Text(
-            text = stringResource(id = R.string.type) + "" + cardInfo.type
+            text = stringResource(id = R.string.type) + " " + cardInfo.type
         )
         Text(
-            text = stringResource(id = R.string.brand) + "" + cardInfo.brand
+            text = stringResource(id = R.string.brand) + " " + cardInfo.brand
         )
         Text(
-            text = stringResource(id = R.string.prepaid) + "" + cardInfo.prepaid
+            text = stringResource(id = R.string.prepaid) + " " + cardInfo.prepaid
         )
         Text(
-            text = stringResource(id = R.string.country) + "" + cardInfo.countryNumeric + ""
-                    + cardInfo.countryAlpha2 + "" + cardInfo.countryName + "" + cardInfo.countryEmoji
+            text = stringResource(id = R.string.country) + " " + cardInfo.countryNumeric + " "
+                    + cardInfo.countryAlpha2 + " " + cardInfo.countryName + " " + cardInfo.countryEmoji
         )
         Text(
-            text = stringResource(id = R.string.country_currency) + "" + cardInfo.countryCurrency
+            text = stringResource(id = R.string.country_currency) + " " + cardInfo.countryCurrency
         )
         Text(
-            text = stringResource(id = R.string.country_coordinates) + "" + cardInfo.countryLatitude
-                    + "" + cardInfo.countryLongitude
+            text = stringResource(id = R.string.country_coordinates) + " " + cardInfo.countryLatitude
+                    + " " + cardInfo.countryLongitude
         )
         Text(
-            text = stringResource(id = R.string.bank) + "" + cardInfo.bankName + "" + cardInfo.bankUrl
-                    + "" + cardInfo.bankPhone + "" + cardInfo.bankCity
+            text = stringResource(id = R.string.bank) + " " + cardInfo.bankName + " " + cardInfo.bankUrl
+                    + " " + cardInfo.bankPhone + " " + cardInfo.bankCity
         )
     }
 }

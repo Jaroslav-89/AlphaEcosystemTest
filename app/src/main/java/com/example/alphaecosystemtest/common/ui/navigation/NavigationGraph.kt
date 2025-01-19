@@ -12,7 +12,7 @@ import com.example.alphaecosystemtest.search.ui.SearchScreen
 fun NavigationGraph(navController: NavHostController, innerPadding: PaddingValues) {
     NavHost(navController, startDestination = BottomNavItem.Search.route) {
         composable(BottomNavItem.Search.route) {
-            SearchScreen()
+            SearchScreen(innerPadding = innerPadding)
         }
         composable(BottomNavItem.History.route) {
             HistoryScreen(innerPadding = innerPadding)
