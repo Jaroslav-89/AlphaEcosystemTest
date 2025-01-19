@@ -1,3 +1,24 @@
 <resources>
     <string name="app_name">Alpha ecosystem test</string>
+    <string name="search">Поиск</string>
+    <string name="history">История</string>
+
+    <string name="search_card_number">Search Card Number:</string>
+    <string name="card_number_length">Card Number Length:</string>
+    <string name="card_number_luhn">Card Number Luhn:</string>
+    <string name="scheme">Scheme:</string>
+    <string name="type">Type:</string>
+    <string name="brand">Brand:</string>
+    <string name="prepaid">Prepaid:</string>
+    <string name="country">Country:</string>
+    <string name="country_currency">Country Currency:</string>
+    <string name="country_coordinates">Country Coordinates:</string>
+    <string name="bank">Bank:</string>
+
+    <string name="search_hint">Введите первые 6–8 цифр номера карты</string>
+    <string name="search_btn">Поиск</string>
+    <string name="nothing_found">Ничего не найдено</string>
+    <string name="internet_throwable">Проблемы со связью \n \n Загрузка не удалась. Проверьте подключение к интернету</string>
+    <string name="search_error">Не корректный запрос</string>
+    <string name="server_error">Ошибка сервера</string>
 </resources>

@@ -1,4 +1,4 @@
-package com.example.alphaecosystemtest.common.theme
+package com.example.alphaecosystemtest.common.ui.theme
 
 import android.app.Activity
 import android.os.Build
