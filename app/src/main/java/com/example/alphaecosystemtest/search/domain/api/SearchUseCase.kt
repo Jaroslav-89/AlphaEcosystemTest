@@ -4,6 +4,6 @@ import com.example.alphaecosystemtest.common.utill.NetworkResult
 import com.example.alphaecosystemtest.common.domain.model.CardInfo
 import kotlinx.coroutines.flow.Flow
 
-interface SearchRepository {
+interface SearchUseCase {
     fun searchCardInfo(cardNumber: String): Flow<NetworkResult<CardInfo>>
 }
