@@ -11,8 +11,10 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.livedata.observeAsState
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
+import com.example.alphaecosystemtest.R
 import com.example.alphaecosystemtest.common.domain.model.CardInfo
 import com.example.alphaecosystemtest.common.ui.CardInfoItem
 import com.example.alphaecosystemtest.common.ui.Loading
@@ -34,7 +36,7 @@ fun HistoryScreen(viewModel: HistoryViewModel = hiltViewModel(), innerPadding: P
 
         is HistoryScreenState.Empty -> {
             Text(
-                text = "No history available",
+                text = stringResource(id = R.string.no_history_available),
                 modifier = Modifier
                     .fillMaxSize()
                     .wrapContentSize()

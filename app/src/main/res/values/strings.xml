@@ -3,9 +3,9 @@
     <string name="search">Поиск</string>
     <string name="history">История</string>
 
-    <string name="search_card_number">Search Card Number:</string>
-    <string name="card_number_length">Card Number Length:</string>
-    <string name="card_number_luhn">Card Number Luhn:</string>
+    <string name="search_card_number">Search card number:</string>
+    <string name="card_number_length">Card number length:</string>
+    <string name="card_number_luhn">Card number luhn:</string>
     <string name="scheme">Scheme:</string>
     <string name="type">Type:</string>
     <string name="brand">Brand:</string>
@@ -19,6 +19,8 @@
     <string name="search_btn">Поиск</string>
     <string name="nothing_found">Ничего не найдено</string>
     <string name="internet_throwable">Проблемы со связью \n \n Загрузка не удалась. Проверьте подключение к интернету</string>
-    <string name="search_error">Не корректный запрос</string>
+    <string name="search_error">Некорректный запрос</string>
     <string name="server_error">Ошибка сервера</string>
+
+    <string name="no_history_available">История запросов пуста</string>
 </resources>

@@ -1,6 +1,7 @@
 package com.example.alphaecosystemtest.search.ui
 
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
@@ -16,13 +17,14 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.livedata.observeAsState
 import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
+import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalSoftwareKeyboardController
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.input.KeyboardType
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
@@ -34,17 +36,21 @@ import com.example.alphaecosystemtest.search.ui.view_model.SearchScreenState
 import com.example.alphaecosystemtest.search.ui.view_model.SearchViewModel
 
 @Composable
-fun SearchScreen(viewModel: SearchViewModel = hiltViewModel()) {
+fun SearchScreen(viewModel: SearchViewModel = hiltViewModel(), innerPadding: PaddingValues) {
     val screenState = viewModel.screenState.observeAsState(SearchScreenState.Default)
     val keyboardController = LocalSoftwareKeyboardController.current
 
     Column(
         modifier = Modifier
-            .padding(top = 60.dp)
+            .padding(
+                top = innerPadding.calculateTopPadding() + 40.dp,
+                bottom = innerPadding.calculateBottomPadding()
+            )
             .fillMaxSize(),
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
-        var text by remember { mutableStateOf("") }
+        var text by rememberSaveable { mutableStateOf("") }
+
         TextField(
             value = text,
             maxLines = 1,
@@ -76,37 +82,33 @@ fun SearchScreen(viewModel: SearchViewModel = hiltViewModel()) {
                 fontSize = 20.sp,
             )
         }
-    }
 
-    when (val state = screenState.value) {
-        is SearchScreenState.Default -> {
+        when (val state = screenState.value) {
+            is SearchScreenState.Default -> {
 
-        }
+            }
 
-        is SearchScreenState.Loading -> {
-            Loading()
-        }
+            is SearchScreenState.Loading -> {
+                Loading()
+            }
 
-        is SearchScreenState.Content -> {
-            Column(
-                modifier = Modifier
-                    .padding(top = 340.dp)
-                    .fillMaxSize(),
-                horizontalAlignment = Alignment.CenterHorizontally
-            ) { CardInfoItem(cardInfo = state.cardInfo) }
-        }
+            is SearchScreenState.Content -> {
+                CardInfoItem(cardInfo = state.cardInfo)
+            }
 
-        is SearchScreenState.CardInfoNotFound -> {
-            Text(
-                text = stringResource(id = R.string.nothing_found),
-                modifier = Modifier
-                    .fillMaxSize()
-                    .wrapContentSize()
-            )
-        }
+            is SearchScreenState.CardInfoNotFound -> {
+                Text(
+                    text = stringResource(id = R.string.nothing_found),
+                    modifier = Modifier
+                        .fillMaxSize()
+                        .wrapContentSize(),
+                    textAlign = TextAlign.Center,
+                )
+            }
 
-        is SearchScreenState.SearchError -> {
-            ShowError(state.type)
+            is SearchScreenState.SearchError -> {
+                ShowError(state.type)
+            }
         }
     }
 }
@@ -119,7 +121,8 @@ fun ShowError(type: ErrorType) {
                 text = stringResource(id = R.string.internet_throwable),
                 modifier = Modifier
                     .fillMaxSize()
-                    .wrapContentSize()
+                    .wrapContentSize(),
+                textAlign = TextAlign.Center,
             )
         }
 
@@ -128,7 +131,8 @@ fun ShowError(type: ErrorType) {
                 text = stringResource(id = R.string.search_error),
                 modifier = Modifier
                     .fillMaxSize()
-                    .wrapContentSize()
+                    .wrapContentSize(),
+                textAlign = TextAlign.Center,
             )
         }
 
@@ -137,7 +141,8 @@ fun ShowError(type: ErrorType) {
                 text = stringResource(id = R.string.server_error),
                 modifier = Modifier
                     .fillMaxSize()
-                    .wrapContentSize()
+                    .wrapContentSize(),
+                textAlign = TextAlign.Center,
             )
         }
     }

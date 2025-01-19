@@ -32,7 +32,7 @@ class SearchViewModel @Inject constructor(private val searchUseCase: SearchUseCa
         when (result) {
             is NetworkResult.Success -> {
                 val cardInfo = result.data
-                if (cardInfo != null) {
+                if (cardInfo != null && cardInfo.isNotEmpty) {
                     renderState(SearchScreenState.Content(cardInfo = cardInfo))
                 } else {
                     renderState(SearchScreenState.CardInfoNotFound)

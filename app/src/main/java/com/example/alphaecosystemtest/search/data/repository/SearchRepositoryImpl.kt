@@ -2,13 +2,13 @@ package com.example.alphaecosystemtest.search.data.repository
 
 import com.example.alphaecosystemtest.common.data.converters.CardInfoConverter
 import com.example.alphaecosystemtest.common.data.db.AppDataBase
+import com.example.alphaecosystemtest.common.domain.model.CardInfo
 import com.example.alphaecosystemtest.common.utill.ErrorType
 import com.example.alphaecosystemtest.common.utill.NetworkResult
 import com.example.alphaecosystemtest.search.data.network.RetrofitNetworkClient
 import com.example.alphaecosystemtest.search.data.network.dto.CardInfoResponse
 import com.example.alphaecosystemtest.search.data.network.dto.CardInfoSearchRequest
 import com.example.alphaecosystemtest.search.domain.api.SearchRepository
-import com.example.alphaecosystemtest.common.domain.model.CardInfo
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 
@@ -28,8 +28,10 @@ class SearchRepositoryImpl(
                 val data = CardInfoConverter.map(response as CardInfoResponse)
                 emit(NetworkResult.Success(data = data.copy(searchCardNumber = cardNumber)))
 
-                dataBase.historyDao()
-                    .insertCardInfo(CardInfoConverter.map(data.copy(searchCardNumber = cardNumber)))
+                if (data.isNotEmpty) {
+                    dataBase.historyDao()
+                        .insertCardInfo(CardInfoConverter.map(data.copy(searchCardNumber = cardNumber)))
+                }
             }
 
             404 -> {
