@@ -21,21 +21,21 @@ data class CardInfo(
     val bankCity: String = "",
 ) {
     val isNotEmpty: Boolean
-        get() = cardNumberLength != 0 &&
-                cardNumberLuhn &&
-                scheme.isNotBlank() &&
-                type.isNotBlank() &&
-                brand.isNotBlank() &&
-                prepaid &&
-                countryNumeric.isNotBlank() &&
-                countryAlpha2.isNotBlank() &&
-                countryName.isNotBlank() &&
-                countryEmoji.isNotBlank() &&
-                countryCurrency.isNotBlank() &&
-                countryLatitude.isNotBlank() &&
-                countryLongitude.isNotBlank() &&
-                bankName.isNotBlank() &&
-                bankUrl.isNotBlank() &&
-                bankPhone.isNotBlank() &&
+        get() = cardNumberLength != 0 ||
+                cardNumberLuhn ||
+                scheme.isNotBlank() ||
+                type.isNotBlank() ||
+                brand.isNotBlank() ||
+                prepaid ||
+                countryNumeric.isNotBlank() ||
+                countryAlpha2.isNotBlank() ||
+                countryName.isNotBlank() ||
+                countryEmoji.isNotBlank() ||
+                countryCurrency.isNotBlank() ||
+                countryLatitude.isNotBlank() ||
+                countryLongitude.isNotBlank() ||
+                bankName.isNotBlank() ||
+                bankUrl.isNotBlank() ||
+                bankPhone.isNotBlank() ||
                 bankCity.isNotBlank()
 }
